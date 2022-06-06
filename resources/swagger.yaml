@@ -1,0 +1,20 @@
+    openapi: 3.0.0
+    info:
+      title: RapiTester
+      description: Simple swagger doc for testing RapiDAST operator
+      version: 0.0.0
+    servers:
+      - url: https://rapitester
+        description: Optional server description, e.g. Main (production) server
+    paths:
+      /test:
+        get:
+          summary: Test endpoint
+          description: Something for RapiDAST to scan
+          responses:
+            '200':    # status code
+              description: Message indicating this is just a test
+              content:
+                application/octet-stream:
+                  schema: 
+                    type: string

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rapitester
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: rapitester
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000

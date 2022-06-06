@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rapitester
+  labels:
+    app.kubernetes.io/name: rapitester
+spec:
+  containers:
+  - name: server
+    image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+    command: ["python3", "rapitester.py"]
+    volumeMounts:
+    - name: tls
+      mountPath: "/etc/rapitestertls"
+      readOnly: true
+  volumes:
+  - name: tls
+    secret:
+      secretName: {{ .Release.Name }}-secret-tls
+      optional: false # default setting; "mysecret" must exist
