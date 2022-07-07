@@ -12,7 +12,11 @@ spec:
       localProxy: {"http": "http://127.0.0.1:8090", "https": "http://127.0.0.1:8090"}
       sessionName: 'session1'
       shutdownOnceFinished: False
-  
+
+    urlscan:
+      urlScan: False
+      urlScanDir: "/scripts"
+      
     openapi:
       importFromUrl: True
       url: "https://rapitester:9000/swagger.yaml"
